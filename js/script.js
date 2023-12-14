@@ -18,11 +18,11 @@ menuToggle.addEventListener("click", function () {
 });
 
 colorChange.addEventListener("click", function () {
-  let letters = "0123456789AB";
+  const letters = "0123456789AB";
 
   let color = "#";
   for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 12)];
+    color += letters[Math.floor(Math.random() * letters.length)];
   }
   // Set primary-color to random color
   document.documentElement.style.setProperty("--primary-color", color);
@@ -32,15 +32,15 @@ colorChange.addEventListener("click", function () {
 if (calculateButton) {
   calculateButton.addEventListener("click", function () {
     // Get the input value
-    let size = parseFloat(sizeInput.value);
+    const size = parseFloat(sizeInput.value);
 
     // Check if the input is a valid number
     if (!isNaN(size)) {
       // Calculate 0.8 pounds per sq m
-      let result = (size + 20) * 0.8;
+      const result = (size + 20) * 0.8;
 
       // Format result to british pounds
-      let formatter = new Intl.NumberFormat("en-GB", {
+      const formatter = new Intl.NumberFormat("en-GB", {
         style: "currency",
         currency: "GBP",
       });
